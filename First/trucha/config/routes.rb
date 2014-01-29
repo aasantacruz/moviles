@@ -1,10 +1,23 @@
 Trucha::Application.routes.draw do
 
+  get "categories/index"
+  get "categories/new"
+  get "categories/create"
+  get "categories/update"
+  get "categories/destroy"
+  get "categories/edit"
   get 'tables/index' => 'tables#index'
   get 'dishes/index' => 'dishes#index'
   get 'orders/index' => 'orders#index'
+  get 'categories/index' => 'categories#index'
 
-  resources :dishes, :orders, :tables
+  namespace :api,defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :dishes,:orders,:tables,:categories
+    end
+  end
+
+  resources :dishes, :orders, :tables, :categories
   
   root "static#index"
   # The priority is based upon order of creation: first created -> highest priority.

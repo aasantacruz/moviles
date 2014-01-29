@@ -14,10 +14,10 @@ class TablesController < ApplicationController
 
   def index
   	@tables = Table.all
-    respond_to do |format|
-      format.html
-      format.json {render json:@tables}
-    end
+    #respond_to do |format|
+    #  format.html
+    #  format.json {render json:@tables}
+    #end
   end
 
   def destroy
