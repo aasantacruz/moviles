@@ -9,6 +9,10 @@ module Api
 				respond_with Dish.all
 			end
 
+			def show
+				respond_with Dish.find(params[:id])
+			end
+
 			def create
 				respond_with Dish.create(dish_params_create)
 			end

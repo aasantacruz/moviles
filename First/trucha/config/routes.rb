@@ -13,6 +13,7 @@ Trucha::Application.routes.draw do
 
   namespace :api,defaults: {format: 'json'} do
     namespace :v1 do
+      get 'category/:id/dishes' => 'categories#show'
       resources :dishes,:orders,:tables,:categories
     end
   end

@@ -1,6 +1,6 @@
 module Api
 	module V1 
-		class DishesController < ApplicationController
+		class TablesController < ApplicationController
 			respond_to :json
 			protect_from_forgery
 			skip_before_action :verify_authenticity_token, if: :json_request?

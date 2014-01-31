@@ -1,6 +1,6 @@
 module Api
 	module V1 
-		class DishesController < ApplicationController
+		class CategoriesController < ApplicationController
 			respond_to :json
 			protect_from_forgery
 			skip_before_action :verify_authenticity_token, if: :json_request?
@@ -9,6 +9,10 @@ module Api
 				respond_with Category.all
 			end
 
+			def show
+				respond_with Category.find(params[:id]).dishes
+			end
+			
 			def create
 				respond_with Category.create(dish_params_create)
 			end
