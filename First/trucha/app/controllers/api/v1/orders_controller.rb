@@ -10,7 +10,9 @@ module Api
 			end
 
 			def create
-				respond_with Order.create(dish_params_create)
+				logger.info "Working on create with params:#{params}"
+				logger.info "After processing params:#{order_params_create}"
+				respond_with Order.create(order_params_create)
 			end
 
 			def destroy
@@ -18,7 +20,7 @@ module Api
 			end
 
 			def update 
-				respond_with Order.update(params[:id],dish_params_update)
+				respond_with Order.update(params[:id],order_params_update)
 			end
 
 			protected
@@ -27,11 +29,13 @@ module Api
     				request.format.json?
   				end
 
-  				def dish_params_create
-  					params.require(:order).permit(:id,:dish_id,:table_id,:total,:is_payed)
+  				def order_params_create
+  					orderhash = eval(params.key(nil).gsub(/:/,"=>"))
+  					params = ActionController::Parameters.new(orderhash).require("order").permit("id","table_id","total","is_payed")
+  					return params
   				end
 
-  				def dish_params_update
+  				def order_params_update
   					params.require(:order).permit(:dish_id,:table_id,:total,:is_payed)
   				end
 
