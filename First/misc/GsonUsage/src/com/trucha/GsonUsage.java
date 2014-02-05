@@ -19,7 +19,8 @@ public class GsonUsage {
 		//GET example
 		try {
 			Gson Getgson = new Gson();
-			URL url = new URL("http://localhost:3000/api/v1/dishes");
+			//URL url = new URL("http://localhost:3000/api/v1/dishes");
+			URL url = new URL(URLConstants.URL_DISH_FOR_CATEGORY+"/3");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("GETAttemp", "application/json");
@@ -32,9 +33,9 @@ public class GsonUsage {
 			String output;
 			while ((output = br.readLine()) != null) {
 				System.out.println(output);
-				JsonParser parser = new JsonParser();
-				JsonArray array = parser.parse(output).getAsJsonArray();
-				Iterator iterator = array.iterator();
+				//JsonParser parser = new JsonParser();
+				//JsonArray array = parser.parse(output).getAsJsonArray();
+				//Iterator iterator = array.iterator();
 				/*while(iterator.hasNext()){
 					System.out.println(Getgson.fromJson(iterator.next().toString(),Dish.class).getId());
 				}*/
@@ -48,7 +49,7 @@ public class GsonUsage {
 
 		//POST example
 
-		try {			
+		/*try {			
 			Gson Postgson = new Gson();
 			
 			URL url = new URL("http://localhost:3000/api/v1/orders");
@@ -65,7 +66,7 @@ public class GsonUsage {
 			JsonParser parser = new JsonParser();
 			orderJsonObject.add("order",parser.parse(POSTjson).getAsJsonObject());
 			System.out.println(Postgson.toJson(orderJsonObject));
-			OutputStream os = conn.getOutputStream();
+			/*OutputStream os = conn.getOutputStream();
 			os.write(Postgson.toJson(orderJsonObject).getBytes("utf-8"));
 			os.flush();
 			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
@@ -83,7 +84,7 @@ public class GsonUsage {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }//end class
