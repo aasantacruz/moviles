@@ -8,6 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
+import com.trucha.*;
 
 
 import com.google.gson.*;
@@ -19,8 +20,8 @@ public class GsonUsage {
 		//GET example
 		try {
 			Gson Getgson = new Gson();
-			//URL url = new URL("http://localhost:3000/api/v1/dishes");
-			URL url = new URL(URLConstants.URL_DISH_FOR_CATEGORY+"/3");
+			URL url = new URL("http://api.androidhive.info/contacts/");
+			//URL url = new URL(URLConstants.URL_DISH_FOR_CATEGORY+"/3");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("GETAttemp", "application/json");
