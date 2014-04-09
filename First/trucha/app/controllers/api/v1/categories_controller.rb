@@ -11,6 +11,7 @@ module Api
 
 			def show
 				respond_with Category.find(params[:id]).dishes
+				#respond_with Category.find_by_name(params[:id]).dishes
 			end
 			
 			def create

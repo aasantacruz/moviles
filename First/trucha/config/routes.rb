@@ -14,7 +14,9 @@ Trucha::Application.routes.draw do
   namespace :api,defaults: {format: 'json'} do
     namespace :v1 do
       get 'category/dishes/:id' => 'categories#show'
-      resources :dishes,:orders,:tables,:categories
+      get 'dishOrder/last' => 'dish_orders#lastRow'
+      get 'orders/last' => 'orders#lastRow'
+      resources :dishes,:orders,:tables,:categories,:dish_orders
     end
   end
 

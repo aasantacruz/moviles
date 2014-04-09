@@ -23,6 +23,10 @@ module Api
 				respond_with Order.update(params[:id],order_params_update)
 			end
 
+			def lastRow
+				respond_with Order.last
+			end
+
 			protected
   			
   				def json_request?

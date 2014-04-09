@@ -13,20 +13,20 @@ public class Order {
 		this.is_payed = is_payed;
 	}
 	
-	public void setId(int id){
-		this.id = id;
+	public int getId(){
+		return this.id;
 	}
 	
-	public void setTableId(int table_id){
-		this.table_id = table_id;
+	public int getTableId(){
+		return this.table_id;
 	}
 	
-	public void setTotal(float total){
-		this.total = total;
+	public float getTotal(){
+		return this.total;
 	}
 	
-	public void setIsPayed(boolean is_payed){
-		this.is_payed = is_payed;
+	public boolean getIsPayed(){
+		return this.is_payed;
 	}
 
 }
